@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link href="../static/css/login.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<div class="content">
+    <div class="middle_column">
+        <div class="zh_title">福州大学教务管理系统</div>
+        <div class="en_title">FZU-FGX</div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户名:</label>
+            <div class="layui-input-block">
+                <input type="text" name="username" id="username" lay-verify="required" lay-reqtext="Username is a required field, how can it be empty?" placeholder="" autocomplete="off" class="layui-input account_input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码:</label>
+            <div class="layui-input-block">
+                <input type="password" name="password" id="password" lay-verify="required" lay-reqtext="Password is a required field, how can it be empty?" placeholder="" autocomplete="off" class="layui-input account_input">
+            </div>
+        </div>
+        <div class="layui-form-item" pane="">
+            <label class="layui-form-label role_title">权限:</label>
+            <div class="layui-input-block" id="check_type">
+                <input type="radio" class="role_input left_input" name="type" value="1" title="学生" checked=""><span class="label">Stu</span>
+                <input type="radio" class="role_input" name="type" value="2" title="教师"><span class="label">Tea</span>
+                <input type="radio" class="role_input" name="type" value="3" title="管理员"><span class="label">Admin</span>
+                <!--disabled=""-->
+            </div>
+        </div>
+        <div class="sub_column">
+            <button type="button" class="layui-btn layui-btn-lg" id="login_btn">login</button>
+        </div>
+        <div class="go_register">
+            Account ? Register> <a href="register?type=1">Stu</a> <a href="register?type=2">Tea</a>
+        </div>
+    </div>
+</div>
+
+</body>
+<link rel="stylesheet" href="../static/layui/css/layui.css">
+<script src="../static/layui/layui.js"></script>
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form ,
+            layer = layui.layer ;
+        layui.$('#login_btn').on('click', function(){
+            // 1. 获取用户输入
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var check_type = layui.$('#check_type input[name="type"]:checked ').val();
+            // 2. 构造请求数据
+            var data = {
+                'password': password
+            };
+            if('1' == check_type){
+                data.studentNumber = username;// 学生登录
+            }else{
+                data.loginName = username;// 教师或管理员登录
+            }
+            data = JSON.stringify(data);
+            // 3. 发送AJAX请求
+            layui.jquery.ajax({
+                url: '1' == check_type ? '/student/login' : ('2' == check_type?'/teacher/login':'/manage/login'),// 请求地址
+                method: 'post',// POST方法
+                data: data,// 发送的数据
+                contentType: "application/json;charset=utf-8",
+                traditional: true,
+                dataType: 'html',
+                success: function (res) {
+                    document.write(res);
+                    // console.log(res)// 成功回调
+                }
+            });
+        });
+    })
+</script>
+</html>

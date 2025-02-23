@@ -1,0 +1,121 @@
+
+/* 整体背景色调 */
+.layui-body {
+	background: #fff1f0;
+}
+
+/* 表格样式 */
+.layui-table {
+	border-radius: 8px;
+	box-shadow: 0 2px 12px 0 rgba(245, 108, 108, 0.1);
+}
+
+.layui-table thead tr {
+	background: #fef0f0;
+	color: #f56c6c;
+}
+
+.layui-table tbody tr:hover {
+	background-color: #fef0f0;
+}
+
+/* 按钮样式 */
+.layui-btn {
+	background-color: #f56c6c !important; /* 主色调按钮 */
+	border-radius: 4px;
+	transition: all 0.3s;
+}
+
+.layui-btn:hover {
+	background-color: #f78989 !important;
+	box-shadow: 0 2px 8px rgba(245, 108, 108, 0.3);
+}
+
+/* 选课中心标题 */
+.college_cloum {
+	font-size: 20px;
+	color: #f56c6c;
+	padding: 20px;
+	background: #fff;
+	border-radius: 8px;
+	border-left: 4px solid #f56c6c;
+	margin-bottom: 20px;
+	box-shadow: 0 2px 12px 0 rgba(0,0,0,0.05);
+}
+
+/* 表格内数据样式 */
+.layui-table td {
+	color: #606266;
+}
+
+/* 课程详情按钮 */
+button.layui-btn-sm[onclick*="openClassDetail"] {
+	background-color: #fef0f0 !important;
+	color: #f56c6c;
+	border: 1px solid #fbc4c4;
+}
+
+button.layui-btn-sm[onclick*="openClassDetail"]:hover {
+	background-color: #f56c6c !important;
+	color: #fff;
+}
+
+/* 选课按钮 */
+button.layui-btn-sm[onclick*="courseSelection"] {
+	background-color: #f56c6c !important;
+	color: #fff;
+}
+
+/* 已选状态按钮 */
+button.layui-btn-sm.selected {
+	background-color: #909399 !important;
+	cursor: not-allowed;
+}
+
+/* 表格中的特殊数据样式 */
+td[data-field="credits"] {
+	color: #f56c6c;
+	font-weight: 500;
+}
+
+/* 左侧导航栏样式调整 */
+.layui-side {
+	background-color: #4a3034 !important;
+}
+
+.layui-nav {
+	background-color: transparent;
+}
+
+/* 顶部导航栏样式 */
+.layui-layout-admin .layui-header {
+	background-color: #fff !important;
+	box-shadow: 0 2px 8px rgba(245, 108, 108, 0.1);
+}
+
+/* 美化滚动条 */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: #fef0f0;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #f56c6c;
+	border-radius: 4px;
+}
+
+/* 表格间隔色 */
+.layui-table tbody tr:nth-child(even) {
+	background-color: #fff9f9;
+}
+
+/* 操作列按钮样式 */
+.layui-table-cell .layui-btn-sm {
+	padding: 0 15px;
+	height: 32px;
+	line-height: 32px;
+	font-size: 13px;
+}
